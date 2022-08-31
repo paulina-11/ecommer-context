@@ -1,0 +1,66 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+.productoId {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10rem 0;
+  @include m.tablet {
+    flex-direction: row;
+    margin: 10rem;
+  }
+  &__img {
+    max-width: 40rem;
+    @include m.tablet {
+      max-width: 50rem;
+    }
+  }
+  &__contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+    @include m.tablet {
+      margin-left: 5rem;
+    }
+  }
+  &__nombre {
+    color: v.$primario;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 1rem;
+    @include m.tablet {
+      text-align: center;
+      font-size: 5rem;
+    }
+  }
+  &__descripcion {
+    text-align: justify;
+    padding: 0 2rem;
+    line-height: 3.5rem;
+  }
+  &__precio {
+    color: v.$primario;
+    font-weight: 900;
+    font-size: 6rem;
+    margin: 2rem;
+  }
+  &__botones {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: 2rem;
+    justify-content: space-around;
+  }
+
+&__boton {
+  @include m.boton(2rem);
+}
+&__carrito {
+  @include m.carrito(v.$primario);
+  margin-right: 6rem;
+  @include m.tablet { 
+    font-size: 6rem;
+  }
+}
+}

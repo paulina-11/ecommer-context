@@ -1,0 +1,48 @@
+@use "variables" as v;
+@mixin telefono {
+  @media (min-width: v.$telefono) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: v.$tablet) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: v.$desktop) {
+    @content;
+  }
+}
+
+// botones
+
+@mixin boton($size) {
+  color: v.$primario;
+  margin-right: 2rem;
+  display: block;
+  padding: 1rem 2rem;
+  background-color: v.$blanco;
+  border: 2px solid v.$secundario;
+  text-align: center;
+  font-size: $size;
+  border-radius: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: v.$secundario;
+    color: v.$blanco;
+    cursor: pointer;
+  }
+}
+
+// carrito
+@mixin carrito($color) {
+    font-size: 4rem;
+    cursor: pointer;
+    color: $color;
+    &:hover {
+      color: v.$secundario;
+    }
+}

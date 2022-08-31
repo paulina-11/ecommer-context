@@ -1,0 +1,9 @@
+.home{
+  margin: 0 auto;
+  &__loader {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
