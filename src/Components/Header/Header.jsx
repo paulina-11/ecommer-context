@@ -1,10 +1,13 @@
+import { useContext } from 'react'
 import { useProductosContext } from '@/Context/ProductosContext'
 import { Link } from 'react-router-dom'
 import Logo from '../../assets/LOGO.png'
 import { FaShoppingCart } from 'react-icons/fa'
+import { AuthContext } from '@/Context/Auth.jsx'
 import '@/Scss/components/header/_header.scss'
 
 const Header = () => {
+  const { isAuth, logout } = useContext(AuthContext)
   const context = useProductosContext()
 
   const handleChange = (e) => {
@@ -20,41 +23,93 @@ const Header = () => {
               to='/'
               style={{ textDecoration: 'none' }}
             >
-              {/* <span className='header__logo'><FaQq /></span> */}
               <div className='header__contenedorLogo'>
                 <img src={Logo} className='header__logo' alt='logo' />
               </div>
             </Link>
           </div>
           <div className='header__principal'>
-            <div className='header__items'>
-              <Link
-                to='/'
-                style={{ textDecoration: 'none' }}
-                className='header__liga'
-              >Home
-              </Link>
-              <Link
-                to='/login'
-                style={{ textDecoration: 'none' }}
-                className='header__liga'
-              >Login
-              </Link>
-              <Link
-                to='/register'
-                style={{ textDecoration: 'none' }}
-                className='header__liga'
-              >Register
-              </Link>
-              <input
-                className='header__input'
-                type='text'
-                placeholder='Busque su producto'
-                value={context.busqueda}
-                onChange={handleChange}
-              />
-              <span className='header__carrito'><FaShoppingCart /></span>
-            </div>
+            <ul className='header__items'>
+              <li>
+                <Link
+                  to='/'
+                  className='header__liga'
+                  style={{ textDecoration: 'none' }}
+                >Home
+                </Link>
+
+              </li>
+              {isAuth
+                ? (
+                  <li className='header__list-item'>
+                    <Link
+                      to='/productos'
+                      className='header__liga'
+                    >
+                      Productos
+                    </Link>
+                  </li>
+                  )
+                : (
+                  <></>
+                  )}
+              {isAuth
+                ? (
+                  <input
+                    className='header__input'
+                    type='text'
+                    placeholder='Busque su producto'
+                    value={context.busqueda}
+                    onChange={handleChange}
+                  />
+                  )
+                : (
+                  <></>
+                  )}
+              {isAuth
+                ? (
+                  <div className='header__liga'>
+                    <span className='header__carrito header__liga'><FaShoppingCart /></span>
+                  </div>
+                  )
+                : (
+                  <></>
+                  )}
+              {isAuth
+                ? (
+                  <li className='header__list-item'>
+                    <Link
+                      to='/'
+                      className='header__liga'
+                      onClick={logout}
+                    >
+                      logout
+                    </Link>
+                  </li>
+                  )
+                : (
+                  <></>
+                  )}
+
+              {!isAuth
+                ? (
+                  <>
+                    <li>
+                      <Link to='/login' className='header__liga'>
+                        Login
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/register' className='header__liga'>
+                        Registro
+                      </Link>
+                    </li>
+                  </>
+                  )
+                : (
+                  <></>
+                  )}
+            </ul>
           </div>
         </div>
         <div className='header__texto'>

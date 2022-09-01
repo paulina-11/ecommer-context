@@ -7,6 +7,9 @@
   @include m.tablet {
     min-height: 50rem;
   }
+  li{
+    text-decoration: none;
+  }
 
   @include m.telefono {
     padding: 2rem 0;

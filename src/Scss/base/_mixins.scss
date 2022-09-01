@@ -39,10 +39,34 @@
 
 // carrito
 @mixin carrito($color) {
-    font-size: 4rem;
-    cursor: pointer;
-    color: $color;
-    &:hover {
-      color: v.$secundario;
-    }
+  font-size: 4rem;
+  cursor: pointer;
+  color: $color;
+  &:hover {
+    color: v.$secundario;
+  }
+}
+// grid
+@mixin grid($columnas, $espaciado) {
+  display: grid;
+  gap: $espaciado;
+  grid-template-columns: repeat($columnas, 1fr);
+}
+
+@mixin bgImage($url, $posicion) {
+  background-image: url($url);
+  background-size: cover;
+  background-position: $posicion;
+  background-repeat: no-repeat;
+}
+
+@mixin titulo {
+  text-align: center;
+  color: v.$primario;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin: 8rem 0;
+  @include tablet {
+    font-size: 5rem;
+  }
 }

@@ -1,0 +1,15 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.loader {
+  margin-top: 4rem;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include m.tablet {
+    height: 10vh;
+    margin: 0 auto;
+  }
+}

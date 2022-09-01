@@ -1,4 +1,3 @@
-import React from 'react'
 import ProductoSinImagen from '../../assets/producto-sin-imagen.png'
 import { Link } from 'react-router-dom'
 import '@/Scss/components/productoCard/_productoCard.scss'

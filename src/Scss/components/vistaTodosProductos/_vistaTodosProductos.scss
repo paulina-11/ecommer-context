@@ -4,14 +4,7 @@
 .productos {
   margin: 4rem;
   &__titulo{
-    text-align: center;
-    color: v.$primario;
-    text-transform: uppercase;
-    font-weight: 900;
-    margin: 8rem 0;
-    @include m.tablet { 
-      font-size: 5rem;
-    }
+    @include m.titulo
   }
   &__grid {
     display: grid;
@@ -29,6 +22,17 @@
     max-width: 40rem;
     @include m.tablet { 
         max-width: 30rem;
+    }
+  }
+  &__loader{
+    margin:0 auto;
+    
+    @include m.tablet { 
+      width: 100rem;
+      height: 10vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
